@@ -1,13 +1,18 @@
 import React from 'react'
-import { BsBank } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
+import { FaBookOpen } from 'react-icons/fa'
 
 function Navbar() {
+    const navigate = useNavigate()
 
     return (
-        <div className='flex justify-between items-center text-lg gap-5 sm:text-2xl p-5 bg-neutral-50 shadow-2xl'>
-            <div className='flex gap-3'>
-                <BsBank size={30} />
-                <h2>இராணிப்பேட்டை புத்தகத் திருவிழா / Ranipet Book Fair</h2>
+        <div className='flex items-center gap-3 px-4 py-4 md:px-6 md:py-5 shadow bg-white'>
+            <div className='flex items-center gap-3 cursor-pointer' onClick={() => navigate('/')}>
+                <span className='bg-emerald-700 text-white p-2 rounded-xl'><FaBookOpen size={22} /></span>
+                <div className='leading-tight'>
+                    <h1 className='text-sm md:text-xl font-semibold text-emerald-900'>இராணிப்பேட்டை புத்தகத் திருவிழா</h1>
+                    <p className='text-xs md:text-sm text-gray-500'>Ranipet Book Fair · Ranipet District Administration</p>
+                </div>
             </div>
         </div>
     )
