@@ -1,68 +1,20 @@
 import React from 'react'
-import { BsBank } from "react-icons/bs";
-import { MdHowToVote } from "react-icons/md";
-import { FaInfoCircle } from "react-icons/fa";
-import { MdPhotoLibrary } from "react-icons/md";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
+import { FaBookOpen } from 'react-icons/fa'
 
 function Navbar() {
-    const navigate = useNavigate();
-    const location = useLocation();
-
-    const isActive = (path) => location.pathname === path;
+    const navigate = useNavigate()
 
     return (
-        <>
-            <div className='hidden md:flex justify-between items-center px-6 py-6 shadow bg-white'>
-                <div className='flex items-center gap-2 text-xl cursor-pointer' onClick={() => navigate("/")}>
-                    <BsBank size={28} />
-                    <h1>இராணிப்பேட்டை மாவட்டம் / Ranipet District</h1>
-                </div>
-
-                <div className='flex gap-8 text-lg font-semibold'>
-
-                    <h1
-                        onClick={() => navigate("/pledge")}
-                        className={`cursor-pointer ${isActive("/pledge") ? "text-orange-600" : ""}`}
-                    >
-                        உறுதிமொழி / PLEDGE
-                    </h1>
-
-                    <h1
-                        onClick={() => navigate("/gallery")}
-                        className={`cursor-pointer ${isActive("/gallery") ? "text-orange-600" : ""}`}
-                    >
-                        எங்கள் பணிகள் / GALLERY
-                    </h1>
-
+        <div className='flex items-center gap-3 px-4 py-4 md:px-6 md:py-5 shadow bg-white'>
+            <div className='flex items-center gap-3 cursor-pointer' onClick={() => navigate('/')}>
+                <span className='bg-emerald-700 text-white p-2 rounded-xl'><FaBookOpen size={22} /></span>
+                <div className='leading-tight'>
+                    <h1 className='text-sm md:text-xl font-semibold text-emerald-900'>இராணிப்பேட்டை புத்தகத் திருவிழா</h1>
+                    <p className='text-xs md:text-sm text-gray-500'>Ranipet Book Fair · Ranipet District Administration</p>
                 </div>
             </div>
-
-            <div className='md:hidden flex items-center gap-3 text-xl px-4 py-4 bg-white shadow'>
-                <BsBank size={28} />
-                <h1 className='text-sm'>இராணிப்பேட்டை மாவட்டம் / Ranipet District</h1>
-            </div>
-
-            <div className='md:hidden fixed bottom-0 left-0 w-full bg-white shadow-lg flex justify-around py-4 rounded-t-4xl'>
-
-                <div
-                    onClick={() => navigate("/pledge")}
-                    className={`flex flex-col gap-1 items-center cursor-pointer ${isActive("/pledge") ? "text-orange-600" : "text-gray-700"}`}
-                >
-                    <MdHowToVote size={25} />
-                    <span className='text-sm'>உறுதிமொழி</span>
-                </div>
-
-                <div
-                    onClick={() => navigate("/gallery")}
-                    className={`flex flex-col gap-1 items-center cursor-pointer ${isActive("/gallery") ? "text-orange-600" : "text-gray-700"}`}
-                >
-                    <MdPhotoLibrary size={25} />
-                    <span className='text-sm'>கேலரி</span>
-                </div>
-
-            </div>
-        </>
+        </div>
     )
 }
 
