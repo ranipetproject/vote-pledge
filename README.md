@@ -1,13 +1,15 @@
-# Ranipet Book Fair – Visitor Registration (QR form)
+# Ranipet Book Fair – Admin Dashboard
 
-Public page opened by scanning the QR code at the Book Fair. Visitors enter basic details,
-reading interests and feedback; data is saved to Supabase table `bookfair_visitors`.
+Login with a Supabase Auth user (Supabase → Authentication → Users → Add user).
 
-Pages: `/` welcome · `/register` form · `/thanks`
+* Dashboard – totals, day-wise footfall, age × gender, book types × gender, purpose,
+  occupation, place, rating, language, latest feedback (auto-refresh every minute)
+* Reports – filters + full table + Excel download (8 sheets)
 
 Environment variables (Vercel → Settings → Environment Variables):
 
     VITE_SUPABASE_URL=https://<project-id>.supabase.co
     VITE_SUPABASE_ANON_KEY=<anon public key>
+    VITE_PUBLIC_SITE_URL=<public QR form URL>   (optional – sidebar "QR Form" link)
 
-Form options (book types, purposes, occupations …) are in `src/data/options.js`.
+Needs the SQL in `bookfair_supabase_setup.sql` to be run once in Supabase.
